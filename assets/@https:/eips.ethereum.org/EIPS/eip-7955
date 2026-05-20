@@ -1,0 +1,14 @@
+// SPDX-License-Identifier: CC0-1.0
+pragma solidity ^0.8.29;
+
+contract MiniBootstrap {
+    bytes private constant _CREATE2_FACTORY_INIT_CODE = hex"7c60203d3d3582360380843d373d34f5806019573d813d933efd5b3d52f33d52601d6003f3";
+    bytes32 private constant _CREATE2_FACTORY_SALT = hex"000000000000000000000000000000000000000000000000000000000001bec5";
+
+    fallback() external {
+        bytes memory initCode = _CREATE2_FACTORY_INIT_CODE;
+        assembly ("memory-safe") {
+            pop(create2(0, add(initCode, 32), mload(initCode), _CREATE2_FACTORY_SALT))
+        }
+    }
+}
