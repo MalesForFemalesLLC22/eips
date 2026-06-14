@@ -1,0 +1,13 @@
+{
+  "serverNodes": [
+    "worker-node1.test-oag.com"
+  ],
+  "database": {
+    "type": "mysql",
+    "host": "db.domain.tld",
+    "port": 3306,
+    "name": "oagofflinemode"
+  },
+  "publicDomain": "offline-idp-service.domain.tld",
+  "certificateId": "15cc2bc6-b280-4d94-a0bf-c91751b40d9c"
+}
