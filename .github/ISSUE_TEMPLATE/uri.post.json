@@ -1,0 +1,14 @@
+require 'uri'
+require 'net/http'
+require 'openssl'
+
+your_okta_domain = 'subdomain.okta.com'
+url = URI('https://{oaghostname}/api/v2/settings/authentication-service/health-check')
+
+http = Net::HTTP.new(url.host, url.port)
+http.use_ssl = true
+
+request = Net::HTTP::Get.new(url)
+
+response = http.request(request)
+puts response.read_body
